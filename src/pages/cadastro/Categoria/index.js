@@ -28,7 +28,9 @@ function CadastroCategoria() {
   }
 
   useEffect(() => {
-    const URL = 'http://localhost:8080/'
+    const URL = window.location.hostname.includes('localhost')
+      ? 'http://localhost:8080/'
+      : 'https://dougflixreact.herokuapp.com/'
     fetch(`${URL}categorias`)
       .then(async (response) => {
         const responseJSON = await response.json()
