@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled, { css } from 'styled-components'
 
 const FormFieldWrapper = styled.div`
   position: relative;
@@ -10,9 +10,9 @@ const FormFieldWrapper = styled.div`
   input[type="color"] {
     padding-left: 56px;
   }
-`;
+`
 
-const Label = styled.label``;
+const Label = styled.label``
 
 Label.Text = styled.span`
   color: #E5E5E5;
@@ -30,7 +30,7 @@ Label.Text = styled.span`
   font-weight: 300;
   
   transition: .1s ease-in-out;
-`;
+`
 
 const Input = styled.input`
   background: #53585D;
@@ -59,21 +59,21 @@ const Input = styled.input`
     transform: scale(.6) translateY(-10px);
   }
   ${({ value }) => {
-    const hasValue = value.length > 0;
+    const hasValue = value.length > 0
     return hasValue && css`
         &:not([type='color']) + ${Label.Text} {
           transform: scale(.6) translateY(-10px);
         }
-      `;
+      `
   }
 }
-`;
+`
 
 function FormField({
-  label, type, name, value, onChange, maxLength
+  label, type, name, value, onChange, maxLength,
 }) {
-  const isTypeTextArea = type === 'textarea';
-  const tag = isTypeTextArea ? 'textarea' : 'input';
+  const isTypeTextArea = type === 'textarea'
+  const tag = isTypeTextArea ? 'textarea' : 'input'
 
   return (
     <FormFieldWrapper>
@@ -92,20 +92,22 @@ function FormField({
         </Label.Text>
       </Label>
     </FormFieldWrapper>
-  );
+  )
 }
 
 FormField.defaultProps = {
-  type: 'text',
-  value: '',
-};
+  type: 'text',
+  value: '',
+  maxLength: 32,
+}
 
 FormField.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   type: PropTypes.string,
   value: PropTypes.string,
+  maxLength: PropTypes.number,
   onChange: PropTypes.func.isRequired,
-};
+}
 
-export default FormField;
+export default FormField
