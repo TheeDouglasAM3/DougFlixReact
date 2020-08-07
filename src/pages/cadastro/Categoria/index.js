@@ -8,7 +8,7 @@ import useForm from '../../../hooks/useForm'
 function CadastroCategoria() {
   const [categorias, setCategorias] = useState([])
   const valoresIniciaisForm = {
-    nome: '',
+    titulo: '',
     descricao: '',
     cor: '#ffffff',
   }
@@ -27,7 +27,7 @@ function CadastroCategoria() {
         ])
       })
   }, [
-    valoresForm.nome,
+    valoresForm.titulo,
   ])
 
   // mudar cor do form style={{background: valoresForm.cor}}
@@ -35,7 +35,7 @@ function CadastroCategoria() {
     <PageDefault>
       <h1 style={{ color: valoresForm.cor }}>
         Cadastro de Categoria:
-        {valoresForm.nome}
+        {valoresForm.titulo}
       </h1>
 
       <form onSubmit={function handleSubmit(event) {
@@ -50,9 +50,9 @@ function CadastroCategoria() {
         <FormField
           label="Nome da Categoria"
           type="text"
-          name="nome"
+          name="titulo"
           maxLength={32}
-          value={valoresForm.nome}
+          value={valoresForm.titulo}
           onChange={handleChange}
         />
 
