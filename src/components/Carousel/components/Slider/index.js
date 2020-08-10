@@ -1,6 +1,7 @@
-import React from 'react';
-import SlickSlider from 'react-slick';
-import styled from 'styled-components';
+import React from 'react'
+import PropTypes from 'prop-types'
+import SlickSlider from 'react-slick'
+import styled from 'styled-components'
 
 const Container = styled.ul`
   padding: 0;
@@ -25,7 +26,7 @@ const Container = styled.ul`
   .slick-next {
     right: 16px;
   }
-`;
+`
 
 export const SliderItem = styled.li`
   margin-right: 16px;
@@ -35,14 +36,13 @@ export const SliderItem = styled.li`
     height: 197px;
     object-fit: cover;
   }
-`;
-
+`
 
 const Slider = ({ children }) => (
   <Container>
     <SlickSlider {...{
       dots: false,
-      infinite: false,
+      infinite: true,
       speed: 300,
       centerMode: false,
       variableWidth: true,
@@ -52,6 +52,10 @@ const Slider = ({ children }) => (
       {children}
     </SlickSlider>
   </Container>
-);
+)
 
-export default Slider; 
+Slider.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
+export default Slider
