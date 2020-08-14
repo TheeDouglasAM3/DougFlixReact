@@ -26,7 +26,7 @@ function CadastroVideo() {
   }, [])
 
   return (
-    <PageDefault>
+    <PageDefault menuPathRoute="/cadastro/categoria" menuNameButton="Nova categoria">
       <h1>Cadastro de Vídeo</h1>
 
       <form onSubmit={(event) => {

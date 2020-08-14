@@ -15,10 +15,10 @@ const Main = styled.main`
     `}
 `
 
-function PageDefault({ children, paddingAll }) {
+function PageDefault({ children, paddingAll, menuPathRoute, menuNameButton }) {
   return (
     <>
-      <Menu />
+      <Menu menuPathRoute={menuPathRoute} menuNameButton={menuNameButton} />
       <Main paddingAll={paddingAll}>
         {children}
       </Main>

@@ -32,7 +32,7 @@ function CadastroCategoria() {
 
   // mudar cor do form style={{background: valoresForm.cor}}
   return (
-    <PageDefault>
+    <PageDefault menuPathRoute="/cadastro/video" menuNameButton="Novo vídeo">
       <h1 style={{ color: valoresForm.cor }}>
         Cadastro de Categoria:
         {valoresForm.titulo}

@@ -19,7 +19,7 @@ function Home() {
   }, [])
 
   return (
-    <PageDefault paddingAll={0}>
+    <PageDefault paddingAll={0} menuPathRoute="/cadastro/video" menuNameButton="Novo vídeo">
       {dadosIniciais.length === 0 && (<div>Loading...</div>)}
 
       {dadosIniciais.map((categoria, indice) => {
