@@ -2,28 +2,6 @@ ul {
     padding: 0;
 }
 
-ul li {
-    list-style-type: none;
-    padding: 0.8rem;
-    border-radius: 0.2rem;
-    background:#1f1f1f;
-    margin-top: 0.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-ul li p {
-    margin: 0;
-}
-
-ul li div i {
-    background: #870000;
-    padding: 0.5rem;
-    border-radius: 0.2rem;
-    cursor: pointer;
-}
-
 .hide {
     display: none;
 }

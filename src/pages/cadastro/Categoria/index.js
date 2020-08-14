@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import useForm from '../../../hooks/useForm'
 import categoriasRepository from '../../../repositories/categorias'
 import PageDefault from '../../../components/PageDefault'
 import FormField from '../../../components/FormField'
 import Button from '../../../components/Button'
-import useForm from '../../../hooks/useForm'
+import ListItem from '../../../components/ListItem'
 
 import './styles.css'
 
@@ -99,14 +100,12 @@ function CadastroCategoria() {
       <br />
       <ul>
         {categorias.map((categoria) => (
-          <li key={`${categoria.titulo}`}>
-            <p>
-              {categoria.titulo}
-            </p>
-            <div>
-              <i className="fas fa-trash-alt" onClick={(event) => deleteCategory(event, categoria.id)} aria-hidden="true" />
-            </div>
-          </li>
+          <ListItem
+            key={categoria.id}
+            name={categoria.titulo}
+            iconClassName="fas fa-trash-alt"
+            onClickFunction={(event) => deleteCategory(event, categoria.id)}
+          />
         ))}
       </ul>
 
