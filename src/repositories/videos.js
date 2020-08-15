@@ -2,6 +2,18 @@ import config from '../config'
 
 const URL_VIDEOS = `${config.URL_BACKEND}/videos`
 
+function getAll() {
+  return fetch(`${URL_VIDEOS}`)
+    .then(async (response) => {
+      if (response.ok) {
+        const responseJson = await response.json()
+        return responseJson
+      }
+
+      throw new Error('Não foi possível pegar os dados :(( ')
+    })
+}
+
 function store(objetoDoVideo) {
   return fetch(`${URL_VIDEOS}?_embed=videos`, {
     method: 'POST',
@@ -20,6 +32,24 @@ function store(objetoDoVideo) {
     })
 }
 
+function drop(id) {
+  return fetch(`${URL_VIDEOS}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-type': 'application/json',
+    },
+  }).then(async (response) => {
+    if (response.ok) {
+      const responseJson = await response.json()
+      return responseJson
+    }
+
+    throw new Error('Não foi possível deletar o vídeo :(')
+  })
+}
+
 export default {
+  getAll,
   store,
+  drop,
 }
