@@ -14,6 +14,18 @@ function getAll() {
     })
 }
 
+function getPerPage(pageNumber = 1) {
+  return fetch(`${URL_VIDEOS}?_page=${pageNumber}`)
+    .then(async (response) => {
+      if (response.ok) {
+        const responseJson = await response.json()
+        return responseJson
+      }
+
+      throw new Error('Não foi possível pegar os dados :(( ')
+    })
+}
+
 function store(objetoDoVideo) {
   return fetch(`${URL_VIDEOS}?_embed=videos`, {
     method: 'POST',
@@ -50,6 +62,7 @@ function drop(id) {
 
 export default {
   getAll,
+  getPerPage,
   store,
   drop,
 }
