@@ -18,18 +18,12 @@ function CadastroCategoria() {
   }
 
   const { handleChange, valoresForm, clearForm } = useForm(valoresIniciaisForm)
-  const URL = window.location.hostname.includes('localhost')
-    ? 'http://localhost:8080/'
-    : 'https://dougflixreact.herokuapp.com/'
 
   useEffect(() => {
-    fetch(`${URL}categorias`)
-      .then(async (response) => {
-        const responseJSON = await response.json()
-        setCategorias([
-          ...responseJSON,
-        ])
-      })
+    categoriasRepository.getAll()
+      .then((response) => setCategorias([
+        ...response,
+      ]))
   }, [
     valoresForm.titulo,
   ])
