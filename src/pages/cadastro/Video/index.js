@@ -10,7 +10,12 @@ import ListItem from '../../../components/ListItem'
 
 function CadastroVideo() {
   const history = useHistory()
+
+  const [page, setPage] = useState(1)
+  const [loading, setLoading] = useState(true)
   const [videos, setVideos] = useState([])
+  const [stopRenderNewPages, setstopRenderNewPages] = useState(false)
+
   const [categorias, setCategorias] = useState([])
   const categoriasTitulo = categorias.map(({ titulo }) => titulo)
   const { handleChange, valoresForm } = useForm({
@@ -19,13 +24,32 @@ function CadastroVideo() {
     categoria: '',
   })
 
+  const handleScroll = () => {
+    setPage((prev) => prev + 1)
+  }
+
+  window.onscroll = () => {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+      handleScroll()
+    }
+  }
+
+  useEffect(() => {
+    const loadVideos = async () => {
+      setLoading(true)
+      const newVideos = await videosRepository.getPerPage(page)
+      setVideos((prev) => [...prev, ...newVideos])
+      if (newVideos.length === 0) setstopRenderNewPages(true)
+      console.log(newVideos)
+      setLoading(false)
+    }
+
+    if (!stopRenderNewPages) loadVideos()
+  }, [page])
+
   useEffect(() => {
     categoriasRepository.getAll()
       .then((response) => setCategorias([
-        ...response,
-      ]))
-    videosRepository.getAll()
-      .then((response) => setVideos([
         ...response,
       ]))
   }, [])
@@ -41,7 +65,6 @@ function CadastroVideo() {
 
       <form onSubmit={(event) => {
         event.preventDefault()
-        // alert('Video Cadastrado com sucesso!!!1!');
 
         const categoriaEscolhida = categorias
           .find((categoria) => categoria.titulo === valoresForm.categoria)
@@ -52,7 +75,6 @@ function CadastroVideo() {
           categoriaId: categoriaEscolhida.id,
         })
           .then(() => {
-            console.log('Cadastrou com sucesso!')
             history.push('/')
           })
       }}
@@ -101,6 +123,7 @@ function CadastroVideo() {
           />
         ))}
       </ul>
+      {loading && <p>Loading ...</p>}
     </PageDefault>
   )
 }
