@@ -8,6 +8,7 @@ import Button from '../../../components/Button'
 import ListItem from '../../../components/ListItem'
 
 import './styles.css'
+import Loading from '../../../components/Loading'
 
 function CadastroCategoria() {
   const [categorias, setCategorias] = useState([])
@@ -86,11 +87,7 @@ function CadastroCategoria() {
         </Button>
       </form>
 
-      { categorias.length === 0 && (
-      <div>
-        Loading...
-      </div>
-      )}
+      { categorias.length === 0 && <Loading /> }
       <br />
       <ul>
         {categorias.map((categoria) => (

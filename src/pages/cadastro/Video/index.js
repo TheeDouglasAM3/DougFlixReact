@@ -8,6 +8,8 @@ import videosRepository from '../../../repositories/videos'
 import categoriasRepository from '../../../repositories/categorias'
 import ListItem from '../../../components/ListItem'
 
+import Loading from '../../../components/Loading'
+
 function CadastroVideo() {
   const history = useHistory()
 
@@ -122,7 +124,7 @@ function CadastroVideo() {
           />
         ))}
       </ul>
-      {loading && <p>Loading ...</p>}
+      {loading && <Loading />}
     </PageDefault>
   )
 }
