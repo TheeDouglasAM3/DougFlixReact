@@ -40,7 +40,6 @@ function CadastroVideo() {
       const newVideos = await videosRepository.getPerPage(page)
       setVideos((prev) => [...prev, ...newVideos])
       if (newVideos.length === 0) setstopRenderNewPages(true)
-      console.log(newVideos)
       setLoading(false)
     }
 

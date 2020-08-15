@@ -10,10 +10,10 @@ function Home() {
   useEffect(() => {
     categoriasRepository.getAllWithVideos()
       .then((categoriasComVideos) => {
-        console.log(categoriasComVideos)
         setDadosIniciais(categoriasComVideos)
       })
       .catch((error) => {
+        // eslint-disable-next-line no-console
         console.log(error.message)
       })
   }, [])
