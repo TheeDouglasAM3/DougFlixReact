@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import useForm from '../../../hooks/useForm'
 import categoriasRepository from '../../../repositories/categorias'
 import PageDefault from '../../../components/PageDefault'
 import FormField from '../../../components/FormField'
 import Button from '../../../components/Button'
 import ListItem from '../../../components/ListItem'
-
-import './styles.css'
 import Loading from '../../../components/Loading'
 
+import './styles.css'
+
 function CadastroCategoria() {
+  const [isLoaded, setIsLoaded] = useState(false)
   const [categorias, setCategorias] = useState([])
   const valoresIniciaisForm = {
     titulo: '',
@@ -22,9 +22,12 @@ function CadastroCategoria() {
 
   useEffect(() => {
     categoriasRepository.getAll()
-      .then((response) => setCategorias([
-        ...response,
-      ]))
+      .then((response) => {
+        setCategorias([
+          ...response,
+        ])
+        setIsLoaded(true)
+      })
   }, [
     valoresForm.titulo,
   ])
@@ -87,7 +90,7 @@ function CadastroCategoria() {
         </Button>
       </form>
 
-      { categorias.length === 0 && <Loading /> }
+      { !isLoaded && <Loading /> }
       <br />
       <ul>
         {categorias.map((categoria) => (
@@ -100,9 +103,6 @@ function CadastroCategoria() {
         ))}
       </ul>
 
-      <Link to="/">
-        Ir para home
-      </Link>
     </PageDefault>
   )
 }
