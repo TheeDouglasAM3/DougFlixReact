@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import PageDefault from '../../../components/PageDefault'
 import useForm from '../../../hooks/useForm'
 import FormField from '../../../components/FormField'
 import Button from '../../../components/Button'
 import videosRepository from '../../../repositories/videos'
 import categoriasRepository from '../../../repositories/categorias'
+import ListItem from '../../../components/ListItem'
 
 function CadastroVideo() {
   const history = useHistory()
+  const [videos, setVideos] = useState([])
   const [categorias, setCategorias] = useState([])
   const categoriasTitulo = categorias.map(({ titulo }) => titulo)
   const { handleChange, valoresForm } = useForm({
@@ -18,12 +20,20 @@ function CadastroVideo() {
   })
 
   useEffect(() => {
-    categoriasRepository
-      .getAll()
-      .then((categoriasFromServer) => {
-        setCategorias(categoriasFromServer)
-      })
+    categoriasRepository.getAll()
+      .then((response) => setCategorias([
+        ...response,
+      ]))
+    videosRepository.getAll()
+      .then((response) => setVideos([
+        ...response,
+      ]))
   }, [])
+
+  function deleteVideo(event, id) {
+    videosRepository.drop(id)
+    event.target.parentNode.parentNode.classList.add('hide')
+  }
 
   return (
     <PageDefault menuPathRoute="/cadastro/categoria" menuNameButton="Nova categoria">
@@ -80,9 +90,17 @@ function CadastroVideo() {
         </Button>
       </form>
 
-      <Link to="/cadastro/categoria">
-        Cadastrar Categoria
-      </Link>
+      <br />
+      <ul>
+        {videos.map((video) => (
+          <ListItem
+            key={video.id}
+            name={video.titulo}
+            iconClassName="fas fa-trash-alt"
+            onClickFunction={(event) => deleteVideo(event, video.id)}
+          />
+        ))}
+      </ul>
     </PageDefault>
   )
 }
