@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { useAlert } from 'react-alert'
 import PageDefault from '../../../components/PageDefault'
 import useForm from '../../../hooks/useForm'
 import FormField from '../../../components/FormField'
@@ -12,6 +13,7 @@ import Loading from '../../../components/Loading'
 
 function CadastroVideo() {
   const history = useHistory()
+  const alert = useAlert()
 
   const [page, setPage] = useState(1)
   const [loading, setLoading] = useState(true)
@@ -55,6 +57,26 @@ function CadastroVideo() {
       ]))
   }, [])
 
+  function submitVideo(event) {
+    event.preventDefault()
+
+    if (categoriasTitulo.find((categoriaName) => categoriaName === valoresForm.categoria)) {
+      const categoriaEscolhida = categorias
+        .find((categoria) => categoria.titulo === valoresForm.categoria)
+
+      videosRepository.store({
+        titulo: valoresForm.titulo,
+        url: valoresForm.url,
+        categoriaId: categoriaEscolhida.id,
+      })
+        .then(() => {
+          history.push('/')
+        })
+    } else {
+      alert.error('Você inseriu uma categoria que não existe!')
+    }
+  }
+
   function deleteVideo(event, id) {
     videosRepository.drop(id)
     event.target.parentNode.parentNode.classList.add('hide')
@@ -64,22 +86,7 @@ function CadastroVideo() {
     <PageDefault menuPathRoute="/cadastro/categoria" menuNameButton="Nova categoria">
       <h1>Cadastro de Vídeo</h1>
 
-      <form onSubmit={(event) => {
-        event.preventDefault()
-
-        const categoriaEscolhida = categorias
-          .find((categoria) => categoria.titulo === valoresForm.categoria)
-
-        videosRepository.store({
-          titulo: valoresForm.titulo,
-          url: valoresForm.url,
-          categoriaId: categoriaEscolhida.id,
-        })
-          .then(() => {
-            history.push('/')
-          })
-      }}
-      >
+      <form onSubmit={submitVideo}>
         <FormField
           label="Titulo do Vídeo"
           type="text"
