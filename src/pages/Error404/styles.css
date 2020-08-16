@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.number-count-area {
+    margin-top: -2.4rem;
+    max-height: 200px;
+    font-size: 12.8rem;
+    cursor: pointer;
+}
+
+h3 {
+    text-align: center;
+    font-size: 2.4rem;
+}
+
+a {
+    text-decoration: none;
+    text-align: center;
+}
+
+a:hover {
+    color: var(--primary);
+}
+
+a p {
+    margin-top: 3.2rem;
+}
+
+@media (max-width: 700px) {
+    .number-count-area {
+        margin-top: -2.4rem;
+        max-height: 200px;
+        font-size: 4.2rem;
+        cursor: pointer;
+    }
+}
