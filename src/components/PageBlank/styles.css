@@ -1,0 +1,10 @@
+body {
+    background-color: var(--black);
+}
+
+main {
+    color: var(--white);
+    flex: 1;
+    padding-left: 5%;
+    padding-right: 5%;
+}
