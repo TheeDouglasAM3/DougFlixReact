@@ -8,8 +8,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import CadastroVideo from './pages/cadastro/Video'
 import CadastroCategoria from './pages/cadastro/Categoria'
-
-const Pagina404 = () => (<div>Página 404</div>)
+import Error404 from './pages/Error404'
 
 ReactDOM.render(
   <AlertProvider template={AlertTemplate} timeout={5000} position="top center">
@@ -18,7 +17,7 @@ ReactDOM.render(
         <Route path="/" component={Home} exact />
         <Route path="/cadastro/video" component={CadastroVideo} />
         <Route path="/cadastro/categoria" component={CadastroCategoria} />
-        <Route component={Pagina404} />
+        <Route component={Error404} />
       </Switch>
     </BrowserRouter>
   </AlertProvider>,
