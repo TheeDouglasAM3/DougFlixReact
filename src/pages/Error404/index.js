@@ -29,7 +29,7 @@ function Error404() {
     if (event.key === 'Enter' && !delayToKeyDown) {
       decreaseOne()
       setDelayToKeyDown(true)
-      setTimeout(() => setDelayToKeyDown(false), 10)
+      setTimeout(() => setDelayToKeyDown(false), 100)
     }
   }
 
