@@ -6,7 +6,7 @@ import './styles.css'
 
 function Error404() {
   const history = useHistory()
-  const [numberCount, setNumberCount] = useState(1)
+  const [numberCount, setNumberCount] = useState(404)
   const [delayToKeyDown, setDelayToKeyDown] = useState(false)
   const wordsEasterEgg = ['Pare', 'com', 'isto', 'agora!', 'Volte',
     'para', 'a', 'home', '...', '..', '.', 'O', 'que', 'você', 'está',
