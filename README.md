@@ -23,11 +23,15 @@ Projeto criado durante a imersão React da [@Alura](https://github.com/alura-cur
 
 # :star: Sumário
 
+* [Descrição](#descrição)
 * [Demonstração da aplicação](#demonstração-da-aplicação) 
 * [Tecnologias](#tecnologias)
 * [Como rodar o projeto](#como-rodar-o-projeto)
 * [Achou algum bug?](#problemas)
 * [Licença](#licença)
+
+# Descrição
+DougFlixReact é um projeto criado em React que lhe permite adicionar ou remover categorias e vídeos em uma plataforma que tem como inspiração o layout da Netflix. 
 
 # Demonstração da aplicação
 O projeto desenvolvido neste repositório está disponível em: 
