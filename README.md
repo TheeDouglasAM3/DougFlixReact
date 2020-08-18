@@ -1,22 +1,21 @@
 # DougFlixReact
 
-<p align="center">
-   <img src="./.github/logo.png" alt="DougFlix" width="280"/>
+<p  align="center">
+    <img  src="./.github/logo.png"  alt="DougFlix"  width="280"/>
 </p>
 
-<p align="center">	
-   <a href="https://www.linkedin.com/in/douglas-alves-marcelino-704250180/">
-      <img alt="Douglas Alves Marcelino" src="https://img.shields.io/badge/-Douglas%20Alves%20Marcelino-8257E5?style=flat&logo=Linkedin&logoColor=white" />
-   </a>
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/TheeDouglasAM3/DougFlixReact?color=774DD6">
-
-  <a href="https://github.com/TheeDouglasAM3/DougFlixReact/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/TheeDouglasAM3/DougFlixReact?color=774DD6">
-  </a> 
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-8257E5">
-  <a href="https://github.com/TheeDouglasAM3/DougFlixReact/stargazers">
-    <img alt="Stargazers" src="https://img.shields.io/github/stars/TheeDouglasAM3/DougFlixReact?color=8257E5&logo=github">
-  </a>
+<p  align="center">
+    <a  href="https://www.linkedin.com/in/douglas-alves-marcelino-704250180/">
+        <img  alt="Douglas Alves Marcelino"  src="https://img.shields.io/badge/-Douglas%20Alves%20Marcelino-2a7ae4?style=flat&logo=Linkedin&logoColor=white" />
+    </a>
+    <img  alt="Repository size"  src="https://img.shields.io/github/repo-size/TheeDouglasAM3/DougFlixReact?color=2a7ae4">
+    <a  href="https://github.com/TheeDouglasAM3/DougFlixReact/commits/master">
+        <img  alt="GitHub last commit"  src="https://img.shields.io/github/last-commit/TheeDouglasAM3/DougFlixReact?color=2a7ae4">
+    </a>
+    <img  alt="License"  src="https://img.shields.io/badge/license-MIT-2a7ae4">
+    <a  href="https://github.com/TheeDouglasAM3/DougFlixReact/stargazers">
+        <img  alt="Stargazers"  src="https://img.shields.io/github/stars/TheeDouglasAM3/DougFlixReact?color=2a7ae4&logo=github">
+    </a>
 </p>
 
 Projeto criado durante a imersão React da [@Alura](https://github.com/alura-cursos), com o intuito de adquirir mais conhecimentos sobre as tecnologias React e otimizar o meu portfólio com um projeto inédito.
@@ -61,6 +60,7 @@ ou
 $ yarn dev
 ```
 Acesse o website em: http://localhost:3000/
+
 Acesse o servidor em: http://localhost:8000/
 
 # Problemas
